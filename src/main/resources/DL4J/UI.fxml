@@ -51,6 +51,8 @@
         <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
         <Label fx:id="lbl_epoch" text="Epoches"/>
         <TextField fx:id="tf_epoch" text="12" prefWidth="80"/>
+        <Label fx:id="lbl_learning_rate" text="LearningRate"/>
+        <TextField fx:id="tf_learning_rate" text="1e-5" prefWidth="80"/>
     </FlowPane>
     <FlowPane>
         <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
