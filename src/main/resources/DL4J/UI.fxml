@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox id="vbox"
+      xmlns:fx="http://javafx.com/fxml"
+      stylesheets="@UI.css"
+      fx:controller="DL4J.Controller">
+    <MenuBar fx:id="menuBar">
+        <Menu text="File">
+            <MenuItem text="New"/>
+            <MenuItem text="Open"/>
+            <MenuItem text="Save"/>
+            <MenuItem text="Save As"/>
+            <SeparatorMenuItem />
+            <MenuItem text="Exit"/>
+        </Menu>
+        <Menu text="Edit">
+            <MenuItem text="Copy"/>
+            <MenuItem text="Cut"/>
+            <MenuItem text="Paste"/>
+        </Menu>
+        <Menu text="Help">
+            <MenuItem text="Search" disable="true"/>
+            <MenuItem text="Online Manual" visible="false"/>
+            <SeparatorMenuItem />
+            <MenuItem text="About" />
+        </Menu>
+    </MenuBar>
+    <FlowPane>
+        <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+        <TextField fx:id="tf_work_dir" text="" prefWidth="340"/>
+        <Button fx:id="btn_set_dir" text="Set Dir" id="bevel-grey" onAction="#setDir" />
+        <TextField fx:id="tf_train_dir" text="train" prefWidth="80" onMouseClicked="#trainDir"/>
+        <TextField fx:id="tf_pred_dir" text="pred" prefWidth="80" onMouseClicked="#predDir"/>
+    </FlowPane>
+    <FlowPane>
+        <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+        <Label fx:id="lbl_original_dir" text="Original"/>
+        <TextField fx:id="tf_original_dir" text="Original" prefWidth="80"/>
+        <Label fx:id="lbl_target_dir" text="Target (,)"/>
+        <TextField fx:id="tf_target_dir" text="Target" prefWidth="300" onMouseClicked="#setTarget"/>
+        <CheckBox fx:id="chk_auto_all" text="AutoAll" prefWidth="100.0" selected="true"/>
+    </FlowPane>
+    <FlowPane>
+        <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+        <Label fx:id="lbl_epoch" text="Epoches"/>
+        <TextField fx:id="tf_epoch" text="12" prefWidth="80"/>
+    </FlowPane>
+    <FlowPane>
+        <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+        <Button fx:id="btn_train" text="Train" id="round-red" />
+        <Button fx:id="btn_train_predict" text="Train Predict" id="bevel-grey" />
+        <Button fx:id="btn_predict" text="Predict" id="green" />
+    </FlowPane>
+    <FlowPane>
+        <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+        <Button fx:id="btn_cancel" text="Cancel" id="bevel-grey"/>
+        <ProgressBar fx:id="progressBar" prefWidth="200" progress="0"/>
+        <Label fx:id="lbl_status" text=""/>
+    </FlowPane>
+</VBox>
+        <!--<Button fx:id="btn1" mnemonicParsing="false" text="Button" onAction="#handleSubmitButtonAction" />-->
+        <!--<Label fx:id="lbl1" text="Label" GridPane.columnIndex="1" />-->
+        <!--<Circle centerX="50" centerY="50" radius="20" GridPane.rowIndex="1" GridPane.columnIndex="0" />-->
