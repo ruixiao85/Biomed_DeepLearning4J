@@ -18,6 +18,7 @@ public class Main extends Application
     }
     public static void main(String[] args) throws Exception {
 
+
 //            DataTypeUtil.setDTypeForContext(DataBuffer.Type.DOUBLE); DataTypeUtil.setDTypeForContext(DataBuffer.Type.DOUBLE); //DP4J double precision
 //            DataTypeUtil.setDTypeForContext(DataBuffer.Type.FLOAT); DataTypeUtil.setDTypeForContext(DataBuffer.Type.FLOAT); //DP4J half precision to save memory
 

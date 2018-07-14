@@ -13,7 +13,7 @@ public class UI {
 
    private String PredSubDirectory;
    public String getPredSubDirectory() { return PredSubDirectory; }
-   public void setPredSubDirectory(String PredSubDirectory) { PredSubDirectory=PredSubDirectory.trim(); }
+   public void setPredSubDirectory(String predSubDirectory) { PredSubDirectory=predSubDirectory.trim(); }
    public String getPredDirectory() { return WorkDirectory+"/"+PredSubDirectory; }
 
    private String NameOriginal;

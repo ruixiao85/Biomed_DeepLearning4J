@@ -36,15 +36,15 @@
         <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
         <TextField fx:id="tf_work_dir" text="" prefWidth="340"/>
         <Button fx:id="btn_set_dir" text="Set Dir" id="bevel-grey" onAction="#setDir" />
-        <TextField fx:id="tf_train_dir" text="train" prefWidth="80" onMouseClicked="#trainDir"/>
-        <TextField fx:id="tf_pred_dir" text="pred" prefWidth="80" onMouseClicked="#predDir"/>
+        <TextField fx:id="tf_train_dir" text="train" prefWidth="80" onMouseClicked="#clickTrainDir"/>
+        <TextField fx:id="tf_pred_dir" text="pred" prefWidth="80" onMouseClicked="#clickPredDir"/>
     </FlowPane>
     <FlowPane>
         <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
         <Label fx:id="lbl_original_dir" text="Original"/>
         <TextField fx:id="tf_original_dir" text="Original" prefWidth="80"/>
         <Label fx:id="lbl_target_dir" text="Target (,)"/>
-        <TextField fx:id="tf_target_dir" text="Target" prefWidth="300" onMouseClicked="#setTarget"/>
+        <TextField fx:id="tf_target_dir" text="Paren" prefWidth="300" onMouseClicked="#setManualTargets"/>
         <CheckBox fx:id="chk_auto_all" text="AutoAll" prefWidth="100.0" selected="true"/>
     </FlowPane>
     <FlowPane>
@@ -56,9 +56,9 @@
     </FlowPane>
     <FlowPane>
         <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
-        <Button fx:id="btn_train" text="Train" id="round-red" />
-        <Button fx:id="btn_train_predict" text="Train Predict" id="bevel-grey" />
-        <Button fx:id="btn_predict" text="Predict" id="green" />
+        <Button fx:id="btn_train" text="Train" id="round-red" onAction="#startTrain"/>
+        <Button fx:id="btn_train_predict" text="Train Predict" id="bevel-grey" onAction="#startTrainPred"/>
+        <Button fx:id="btn_predict" text="Predict" id="green" onAction="#startPredict"/>
     </FlowPane>
     <FlowPane>
         <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
