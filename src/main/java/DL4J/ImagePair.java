@@ -8,6 +8,7 @@ import org.nd4j.linalg.dataset.api.MultiDataSetPreProcessor;
 import org.nd4j.linalg.dataset.api.iterator.MultiDataSetIterator;
 import org.nd4j.linalg.factory.Nd4j;
 import org.nd4j.linalg.indexing.NDArrayIndex;
+import org.nd4j.linalg.indexing.NDArrayIndexAll;
 
 import java.io.File;
 import java.io.IOException;
@@ -65,19 +66,19 @@ public class ImagePair extends NativeImageLoader implements MultiDataSetIterator
       MultiDataSet mds=new MultiDataSet(new INDArray[]{feature},new INDArray[]{label},null,null);
 */
 
-      ArrayList<MultiDataSet> mdsl=new ArrayList<>();
+      ArrayList<INDArray> feature=new ArrayList<>();
+      ArrayList<INDArray> label=new ArrayList<>();
       for (int i=index; i<end; ++i){
          try {
-            INDArray[] features = new INDArray[]{asMatrix(oriFiles.get(i)).muli(1.0/255.0)};
-            INDArray[] labels = new INDArray[]{asMatrix(tarFiles.get(i)).muli(1.0/255.0)};
-            mdsl.add(new MultiDataSet(features, labels));
+            feature.add(asMatrix(oriFiles.get(i)).muli(1.0/255.0));
+            label.add(asMatrix(tarFiles.get(i)).muli(1.0/255.0).get(NDArrayIndex.interval(0,0,true),NDArrayIndex.interval(2,2,true),NDArrayIndex.all(),NDArrayIndex.all()));
          } catch (IOException e) {
             e.printStackTrace();
          }
       }
-      MultiDataSet mds=MultiDataSet.merge(mdsl);
+      MultiDataSet mds=new MultiDataSet(new INDArray[]{Nd4j.vstack(feature)},new INDArray[]{Nd4j.vstack(label)});
 
-      index=end+1;
+      index=end;
       if (preProcessor != null) { preProcessor.preProcess(mds); }
       return mds;
    }

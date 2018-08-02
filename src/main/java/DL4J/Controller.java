@@ -18,6 +18,8 @@ import java.awt.Desktop;
 import java.io.File;
 import java.util.ArrayList;
 
+import static DL4J.Core.train;
+
 public class Controller {
    public TextField tf_work_dir;
    public Button btn_set_dir;
@@ -32,8 +34,11 @@ public class Controller {
    public Label lbl_status;
    public CheckBox chk_auto_all;
 
-   public void initialize() {
-      tf_work_dir.setText(System.getProperty("user.dir"));
+   public void initialize()
+   {
+//      tf_work_dir.setText(System.getProperty("user.dir"));
+      tf_work_dir.setText("D:\\Cel files\\2018-07.13 Adam Brenderia 2X LPS CGS");
+      tf_train_dir.setText("071318 Cleaned 24H post cgs");
    }
 
    public void setDir(ActionEvent actionEvent) {
@@ -67,17 +72,7 @@ public class Controller {
    }
    public void startTrain(ActionEvent actionEvent) {
       UI ui=registerUI();
-      String original=ui.getNameOriginal();
-      ImageList ori=new ImageList(ui.getTrainDirectory(), original);
-      ArrayList<String> oriValid=ori.ImageFiles;
-      for (String target : ui.getNameTargets()) {
-         ImageList tar=new ImageList(ui.getTrainDirectory(), target);
-         ArrayList<String> comValid = new ArrayList<>(oriValid);
-         comValid.retainAll(tar.ImageFiles);
-         ImagePair imagePair=new ImagePair(ui.getTrainDirectory(), original, target, comValid);
-         ComputationGraph model=Model.getUnet();
-         model.fit(imagePair);
-      }
+      train(ui);
    }
    public void startPredict(ActionEvent actionEvent) {
    }

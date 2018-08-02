@@ -1,6 +1,17 @@
 package DL4J;
 
 public class UI {
+   public UI(){
+   }
+   public UI(String wd, String td, String pd, String ori, String tar, int epoch, double lr){
+      this.setWorkDirectory(wd);
+      this.setTrainSubDirectory(td);
+      this.setPredSubDirectory(pd);
+      this.setNameOriginal(ori);
+      this.setNameTargets(tar);
+      this.setNofEpoches(epoch);
+      this.setLearningRate(lr);
+   }
 
    private String WorkDirectory;
    public String getWorkDirectory() { return WorkDirectory; }
@@ -30,10 +41,12 @@ public class UI {
 
    private int NofEpoches;
    public int getNofEpoches() { return NofEpoches; }
-   public void setNofEpoches(String nEpoch) { this.NofEpoches=Integer.parseInt(nEpoch); }
+   public void setNofEpoches(int nEpoch) { this.NofEpoches=nEpoch; }
+   public void setNofEpoches(String nEpoch) { this.setNofEpoches(Integer.parseInt(nEpoch)); }
 
    private double LearningRate;
    public double getLearningRate() { return LearningRate; }
-   public void setLearningRate(String learningRate) { this.LearningRate=Double.valueOf(learningRate); }
+   public void setLearningRate(double learningRate) { this.LearningRate=learningRate; }
+   public void setLearningRate(String learningRate) { this.setLearningRate(Double.valueOf(learningRate)); }
 
 }
